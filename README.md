@@ -2,7 +2,7 @@
 
 TODO: ![Screenshot of Feature Grid](./documentation/feature_grid.png)
 
-TODO: Introduction: What is the package used for?...
+Bring your words to life leveraging flutter_tex_dec with wavy underlines, colorful boxes, speech bubbles and more. Whether you want to highlight important details, add a playful touch or simply stand out. The package makes it easy to add personality and flair to your text.
 
 ## Features
 
@@ -11,12 +11,12 @@ TODO: Introduction: What is the package used for?...
 - [x] Wavy Box
 - [x] Speech Bubble
 
-You can see them in action with the [Example App](./example) we've provided
+Feel free to check out the [Example App](./example) and play around.
 
 ## Installation
 
 ### pub.dev
-Add the following to your `pubspec.yaml`:
+Add flutter_tex_dec as dependency to `pubspec.yaml`:
 
 ```
 dependencies:
@@ -29,23 +29,68 @@ dependencies:
 
 ```
 TextDrawDecorator.boxed(
-    style: BoxStyle.rounded,
-    text: const Text(
-      'Bubble Text',
-      style: TextStyle(fontSize: 32),
-    ),
-    strokeWidth: 2,
+  style: BoxStyle.rounded,
+  text: const Text(
+    'Bubble Text',
+    style: TextStyle(fontSize: 32),
   ),
+  strokeWidth: 2,
+),
 ```
 
-TODO: Add usage and image per feature
+TODO: screenshot
 
-...
+### Circle Decorator
+
+```
+TextDrawDecorator.circled(
+  style: CircleStyle.openCircled,
+  text: const Text(
+    'Open Circled',
+    style: TextStyle(fontSize: 32),
+  ),
+),
+```
+
+TODO: screenshot
+
+### Underline Decorator
+
+```
+TextDrawDecorator.underlined(
+  text: const Text(
+    'Underlined with Text',
+    style: TextStyle(fontSize: 24),
+  ),
+  color: Colors.orange,
+  strokeWidth: 2,
+),
+```
+
+TODO: screenshot
+
+### Highlight Decorator
+
+```
+TextDrawDecorator.highlighted(
+  text: const Text(
+    'Highlighted Text',
+    style: TextStyle(fontSize: 32),
+  ),
+),
+```
+
+TODO: screenshot
 
 ## Roadmap
 
-Planned features:
-- [ ] ...
+### TODOs
+
+- [ ] Fix Wavy Box corners
+
+### Planned features
+
+- [ ] Comic effect
 
 ## Contributing
 
