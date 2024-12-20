@@ -39,7 +39,7 @@ TextDrawDecorator.boxed(
 ),
 ```
 
-TODO: screenshot
+![Box Decorator Example](./documentation/img/box.png)
 
 ### Circle Decorator
 
@@ -53,7 +53,7 @@ TextDrawDecorator.circled(
 ),
 ```
 
-TODO: screenshot
+![Circle Decorator Example](./documentation/img/circle.png)
 
 ### Underline Decorator
 
@@ -68,7 +68,7 @@ TextDrawDecorator.underlined(
 ),
 ```
 
-TODO: screenshot
+![Underline Decorator Example](./documentation/img/underline.png)
 
 ### Highlight Decorator
 
@@ -81,7 +81,7 @@ TextDrawDecorator.highlighted(
 ),
 ```
 
-TODO: screenshot
+![Underline Decorator Example](./documentation/img/highlight.png)
 
 ## Roadmap
 
