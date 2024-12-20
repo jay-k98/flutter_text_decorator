@@ -16,6 +16,7 @@ Feel free to check out the [Example App](./example) and play around.
 ## Installation
 
 ### pub.dev
+
 Add flutter_tex_dec as dependency to `pubspec.yaml`:
 
 ```
@@ -99,10 +100,12 @@ See [CONTRIBUTING](./CONTRIBUTING.md)
 ## Authors and acknowledgment
 
 Authors:
+
 - [Tobias Rump](https://github.com/TobiasRump)
 - [Jonas Klock](https://github.com/jay-k98)
 
 Special Thanks:
+
 - Noah Bauer for the creative name of this package
 
 ## License

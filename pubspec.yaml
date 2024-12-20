@@ -1,0 +1,28 @@
+name: flutter_text_draw_decorator
+description: "A highly customizable text decoration widget for Flutter."
+version: 0.1.0
+repository: https://github.com/TobiasRump/flutter_text_draw_decorator
+issue_tracker: https://github.com/TobiasRump/flutter_text_draw_decorator/issues
+documentation: https://github.com/TobiasRump/flutter_text_draw_decorator
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+  flutter: '>=3.16.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+
+topics:
+  - text
+  - decorations
+  - painting
+  - draw
