@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_text_draw_decorator/src/modules/highlight/painter/highlight_painter.dart';
 
 enum HighlightStyle {
-  textmarker;
+  marker;
 
   CustomPainter getPainter(Text text, Color? color, double? strokeWidth) {
     switch (this) {
-      case HighlightStyle.textmarker:
+      case HighlightStyle.marker:
         return HighlightPainter(
           text: text.data ?? '',
           color: color ?? Colors.yellow,

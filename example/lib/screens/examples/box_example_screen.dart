@@ -54,7 +54,7 @@ class BoxExampleScreen extends StatelessWidget {
               ),
               const SizedBox(height: 32),
               TextDrawDecorator.boxed(
-                style: BoxStyle.wavy,
+                style: BoxStyle.curled,
                 text: const Text(
                   'Wavy Text 1',
                   style: TextStyle(fontSize: 16),
@@ -64,7 +64,7 @@ class BoxExampleScreen extends StatelessWidget {
               ),
               const SizedBox(height: 32),
               TextDrawDecorator.boxed(
-                style: BoxStyle.wavy,
+                style: BoxStyle.curled,
                 text: const Text(
                   'Franz jagt im komplett verwahrlosten Taxi quer durch Berlin',
                   style: TextStyle(fontSize: 16),

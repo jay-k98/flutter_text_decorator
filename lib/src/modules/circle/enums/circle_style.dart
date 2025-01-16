@@ -4,14 +4,14 @@ import 'package:flutter_text_draw_decorator/src/modules/circle/painter/open_circ
 import 'package:flutter_text_draw_decorator/src/modules/circle/decorations/circle_decoration.dart';
 
 enum CircleStyle {
-  openCircled,
-  closedCircled;
+  basic,
+  circled;
 
   CustomPainter getPainter(Text text, {CircleDecoration decoration = const CircleDecoration(color: Colors.orange, strokeWidth: 1)}) {
     switch (this) {
-      case CircleStyle.openCircled:
+      case CircleStyle.basic:
         return OpenCirclePainter(text: text.data ?? '', textStyle: text.style ?? const TextStyle(), decoration: decoration);
-      case CircleStyle.closedCircled:
+      case CircleStyle.circled:
         return ClosedCirclePainter(text: text.data ?? '', textStyle: text.style ?? const TextStyle(), decoration: decoration);
     }
   }

@@ -23,7 +23,7 @@ class CircleExampleScreen extends StatelessWidget {
               ),
               const SizedBox(height: 32),
               TextDrawDecorator.circled(
-                style: CircleStyle.openCircled,
+                style: CircleStyle.basic,
                 text: const Text(
                   'Open Circled',
                   style: TextStyle(fontSize: 32),
@@ -31,7 +31,7 @@ class CircleExampleScreen extends StatelessWidget {
               ),
               const SizedBox(height: 32),
               TextDrawDecorator.circled(
-                style: CircleStyle.openCircled,
+                style: CircleStyle.basic,
                 text: const Text(
                   'Franz jagt im komplett verwahrlosten Taxi quer durch Berlin',
                   style: TextStyle(fontSize: 16),

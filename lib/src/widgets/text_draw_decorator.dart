@@ -25,7 +25,7 @@ class TextDrawDecorator extends StatelessWidget {
 
   factory TextDrawDecorator.circled({
     required Text text,
-    CircleStyle style = CircleStyle.closedCircled,
+    CircleStyle style = CircleStyle.circled,
     CircleDecoration? decoration,
   }) {
     return TextDrawDecorator(
@@ -60,7 +60,7 @@ class TextDrawDecorator extends StatelessWidget {
 
   factory TextDrawDecorator.highlighted({
     required Text text,
-    HighlightStyle style = HighlightStyle.textmarker,
+    HighlightStyle style = HighlightStyle.marker,
     Color? color,
     double? strokeWidth,
   }) {

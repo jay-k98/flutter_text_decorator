@@ -6,7 +6,7 @@ import 'package:flutter_text_draw_decorator/src/modules/box/painter/wavy_box_pai
 enum BoxStyle {
   rounded,
   bubble,
-  wavy;
+  curled;
 
   CustomPainter getPainter(Text text, double borderRadius, double strokeWidth) {
     switch (this) {
@@ -22,7 +22,7 @@ enum BoxStyle {
             orientation: TipOrientation.left,
           ),
         );
-      case BoxStyle.wavy:
+      case BoxStyle.curled:
         return WavyBoxPainter(text: text, borderColor: Colors.black);
     }
   }
