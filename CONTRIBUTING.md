@@ -69,6 +69,5 @@ The commit message starts with the ISSUE-ID followed by a COMMITTAG:
 [DELETE] -> Delete a files/code/folders <br>
 [REFAC] -> Modified or refactored the files/code/folders / changes from PRs <br>
 
-For Example <br>
-"123 [ADD]: new box style"
- 
+**Example** <br>
+123 [ADD]: new box style
