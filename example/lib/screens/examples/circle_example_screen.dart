@@ -17,7 +17,7 @@ class CircleExampleScreen extends StatelessWidget {
             children: [
               TextDrawDecorator.circled(
                 text: const Text(
-                  'Closed Circle',
+                  'Circled Text',
                   style: TextStyle(fontSize: 32),
                 ),
               ),
@@ -25,7 +25,7 @@ class CircleExampleScreen extends StatelessWidget {
               TextDrawDecorator.circled(
                 style: CircleStyle.basic,
                 text: const Text(
-                  'Open Circled',
+                  'Basic Circle',
                   style: TextStyle(fontSize: 32),
                 ),
               ),

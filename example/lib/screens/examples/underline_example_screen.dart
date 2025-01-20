@@ -18,7 +18,7 @@ class UnderlineExampleScreen extends StatelessWidget {
             Center(
               child: TextDrawDecorator.underlined(
                 text: const Text(
-                  'Underlined with Text',
+                  'Underlined Text',
                   style: TextStyle(fontSize: 24),
                 ),
                 color: Colors.orange,

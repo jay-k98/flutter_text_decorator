@@ -18,7 +18,7 @@ class BoxExampleScreen extends StatelessWidget {
               TextDrawDecorator.boxed(
                 style: BoxStyle.rounded,
                 text: const Text(
-                  'Bubble Text',
+                  'Rounded Box',
                   style: TextStyle(fontSize: 32),
                 ),
                 strokeWidth: 2,
@@ -56,7 +56,7 @@ class BoxExampleScreen extends StatelessWidget {
               TextDrawDecorator.boxed(
                 style: BoxStyle.curled,
                 text: const Text(
-                  'Wavy Text 1',
+                  'Curcled Box',
                   style: TextStyle(fontSize: 16),
                 ),
                 strokeWidth: 2,
