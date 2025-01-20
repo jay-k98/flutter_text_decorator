@@ -16,16 +16,16 @@ class CircleExampleScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextDrawDecorator.circled(
+                style: CircleStyle.basic,
                 text: const Text(
-                  'Circled Text',
+                  'Basic Circle',
                   style: TextStyle(fontSize: 32),
                 ),
               ),
               const SizedBox(height: 32),
               TextDrawDecorator.circled(
-                style: CircleStyle.basic,
                 text: const Text(
-                  'Basic Circle',
+                  'Circled Text',
                   style: TextStyle(fontSize: 32),
                 ),
               ),
