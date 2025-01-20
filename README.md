@@ -1,5 +1,8 @@
 # flutter_tex_dec
 
+![License](https://img.shields.io/github/license/EXXETA/flutter_tex_dec)
+
+
 ![Screenshot of Feature Grid](./documentation/img/overview.png)
 
 Bring your words to life leveraging flutter_tex_dec with wavy underlines, colorful boxes, speech bubbles and more. Whether you want to highlight important details, add a playful touch or simply stand out. The package makes it easy to add personality and flair to your text.
