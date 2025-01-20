@@ -35,7 +35,7 @@ dependencies:
 TextDrawDecorator.boxed(
   style: BoxStyle.rounded,
   text: const Text(
-    'Bubble Text',
+    'Rounded Box',
     style: TextStyle(fontSize: 32),
   ),
   strokeWidth: 2,
@@ -48,9 +48,9 @@ TextDrawDecorator.boxed(
 
 ```
 TextDrawDecorator.circled(
-  style: CircleStyle.openCircled,
+  style: CircleStyle.circled,
   text: const Text(
-    'Open Circled',
+    'Circled Text',
     style: TextStyle(fontSize: 32),
   ),
 ),
@@ -62,8 +62,9 @@ TextDrawDecorator.circled(
 
 ```
 TextDrawDecorator.underlined(
+  style: UnderlineStyle.horizontal,
   text: const Text(
-    'Underlined with Text',
+    'Underlined Text',
     style: TextStyle(fontSize: 24),
   ),
   color: Colors.orange,
@@ -77,6 +78,7 @@ TextDrawDecorator.underlined(
 
 ```
 TextDrawDecorator.highlighted(
+  style: HighlightStyle.marker,
   text: const Text(
     'Highlighted Text',
     style: TextStyle(fontSize: 32),
@@ -88,9 +90,10 @@ TextDrawDecorator.highlighted(
 
 ## Roadmap
 
-### TODOs
+### TODO's
 
 - [ ] Fix Wavy Box corners
+- [ ] Add test automation
 
 ### Planned features
 
