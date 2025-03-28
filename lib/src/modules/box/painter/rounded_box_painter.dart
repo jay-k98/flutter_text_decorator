@@ -7,10 +7,7 @@ class RoundedBoxPainter extends CustomPainter {
   final double strokeWidth;
 
   RoundedBoxPainter({
-    super.repaint,
-    required this.text,
-    required this.borderRadius,
-    required this.strokeWidth,
+    required this.text, required this.borderRadius, required this.strokeWidth, super.repaint,
   });
 
   @override

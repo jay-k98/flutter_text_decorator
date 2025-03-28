@@ -6,5 +6,5 @@ abstract class TextDecoratorPainter extends CustomPainter {
   final TextStyle textStyle;
   final DecorationBase decoration;
 
-  TextDecoratorPainter({super.repaint, required this.text, required this.textStyle, required this.decoration});
+  TextDecoratorPainter({required this.text, required this.textStyle, required this.decoration, super.repaint});
 }

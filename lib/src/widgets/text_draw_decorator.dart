@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_text_draw_decorator/src/modules/box/enums/box_style.dart';
+import 'package:flutter_text_draw_decorator/src/modules/circle/decorations/circle_decoration.dart';
 import 'package:flutter_text_draw_decorator/src/modules/circle/enums/circle_style.dart';
 import 'package:flutter_text_draw_decorator/src/modules/highlight/enums/highlight_style.dart';
 import 'package:flutter_text_draw_decorator/src/modules/underline/enums/underline_style.dart';
-import 'package:flutter_text_draw_decorator/src/modules/circle/decorations/circle_decoration.dart';
 
 class TextDrawDecorator extends StatelessWidget {
   final Text text;
