@@ -29,10 +29,10 @@ class BubbleBoxPainter extends CustomPainter {
   final BubbleBoxTip tip;
 
   BubbleBoxPainter({
-    super.repaint,
     required this.text,
     required this.padding,
     required this.bubbleColor,
+    super.repaint,
     this.borderRadius = 8,
     this.tip = const BubbleBoxTip(),
   });
@@ -61,38 +61,38 @@ class BubbleBoxPainter extends CustomPainter {
     //! TODO: extract
     final tailHeight = bubbleHeight * 0.25;
 
-    final path = Path();
+    final path = Path()
 
-    // Top left corner
-    path.moveTo(0, borderRadius);
-    path.quadraticBezierTo(0, 0, borderRadius, 0);
+      // Top left corner
+      ..moveTo(0, borderRadius)
+      ..quadraticBezierTo(0, 0, borderRadius, 0)
 
-    // Top right corner
-    path.lineTo(bubbleWidth - borderRadius, 0);
-    path.quadraticBezierTo(bubbleWidth, 0, bubbleWidth, borderRadius);
+      // Top right corner
+      ..lineTo(bubbleWidth - borderRadius, 0)
+      ..quadraticBezierTo(bubbleWidth, 0, bubbleWidth, borderRadius)
 
-    // Bottom right corner
-    path.lineTo(bubbleWidth, bubbleHeight - borderRadius);
-    path.quadraticBezierTo(bubbleWidth, bubbleHeight, bubbleWidth - borderRadius, bubbleHeight);
+      // Bottom right corner
+      ..lineTo(bubbleWidth, bubbleHeight - borderRadius)
+      ..quadraticBezierTo(bubbleWidth, bubbleHeight, bubbleWidth - borderRadius, bubbleHeight);
 
-    double tipOffset = bubbleWidth * 0.05;
+    final double tipOffset = bubbleWidth * 0.05;
 
-    double tipStart = bubbleWidth * tip.position.percentage;
-    double tipBaseWidth = bubbleWidth * 0.2;
-    double tipEnd = tipStart - tipBaseWidth;
+    final double tipStart = bubbleWidth * tip.position.percentage;
+    final double tipBaseWidth = bubbleWidth * 0.2;
+    final double tipEnd = tipStart - tipBaseWidth;
     double tipPeak = tipEnd - tipOffset;
     if (tip.orientation == TipOrientation.right) {
       tipPeak = tipStart + tipOffset;
     }
 
     // Bottom left corner with tail
-    path.lineTo(tipStart, bubbleHeight);
-    path.lineTo(tipPeak, bubbleHeight + tailHeight);
-    path.lineTo(tipEnd, bubbleHeight);
-    path.lineTo(borderRadius, bubbleHeight);
-    path.quadraticBezierTo(0, bubbleHeight, 0, bubbleHeight - borderRadius);
-
-    path.close();
+    path
+      ..lineTo(tipStart, bubbleHeight)
+      ..lineTo(tipPeak, bubbleHeight + tailHeight)
+      ..lineTo(tipEnd, bubbleHeight)
+      ..lineTo(borderRadius, bubbleHeight)
+      ..quadraticBezierTo(0, bubbleHeight, 0, bubbleHeight - borderRadius)
+      ..close();
 
     // Draw the bubble
     canvas.drawPath(path, paint);
