@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_text_draw_decorator/src/modules/underline/painter/curved_underline_painter.dart';
-import 'package:flutter_text_draw_decorator/src/modules/underline/painter/horizontal_underline_painter.dart';
+import 'package:flutter_text_decorator/src/modules/underline/painter/curved_underline_painter.dart';
+import 'package:flutter_text_decorator/src/modules/underline/painter/horizontal_underline_painter.dart';
 
 enum UnderlineStyle {
   horizontal,

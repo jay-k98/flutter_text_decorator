@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_text_draw_decorator/src/modules/underline/base/underline_painter.dart';
+import 'package:flutter_text_decorator/src/modules/underline/base/underline_painter.dart';
 
 class HorizontalUnderlinePainter extends UnderlinePainter {
   HorizontalUnderlinePainter({required super.color, required super.strokeWidth, super.horizontalOffset});

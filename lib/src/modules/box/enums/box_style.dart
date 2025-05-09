@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_text_draw_decorator/src/modules/box/decorations/bubble_box_tip.dart';
-import 'package:flutter_text_draw_decorator/src/modules/box/painter/rounded_box_painter.dart';
-import 'package:flutter_text_draw_decorator/src/modules/box/painter/wavy_box_painter.dart';
+import 'package:flutter_text_decorator/src/modules/box/decorations/bubble_box_tip.dart';
+import 'package:flutter_text_decorator/src/modules/box/painter/rounded_box_painter.dart';
+import 'package:flutter_text_decorator/src/modules/box/painter/wavy_box_painter.dart';
 
 enum BoxStyle {
   rounded,

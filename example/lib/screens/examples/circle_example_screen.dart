@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_text_draw_decorator/flutter_text_draw_decorator.dart';
+import 'package:flutter_text_decorator/flutter_text_decorator.dart';
 
 class CircleExampleScreen extends StatelessWidget {
   static const String route = '/circle-example';
@@ -15,7 +15,7 @@ class CircleExampleScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextDrawDecorator.circled(
+              TextDecorator.circled(
                 style: CircleStyle.basic,
                 text: const Text(
                   'Basic Circle',
@@ -23,14 +23,14 @@ class CircleExampleScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 32),
-              TextDrawDecorator.circled(
+              TextDecorator.circled(
                 text: const Text(
                   'Circled Text',
                   style: TextStyle(fontSize: 32),
                 ),
               ),
               const SizedBox(height: 32),
-              TextDrawDecorator.circled(
+              TextDecorator.circled(
                 style: CircleStyle.basic,
                 text: const Text(
                   'Franz jagt im komplett verwahrlosten Taxi quer durch Berlin',

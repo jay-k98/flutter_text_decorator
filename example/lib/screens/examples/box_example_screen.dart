@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_text_draw_decorator/flutter_text_draw_decorator.dart';
+import 'package:flutter_text_decorator/flutter_text_decorator.dart';
 
 class BoxExampleScreen extends StatelessWidget {
   static const String route = '/box-example';
@@ -15,7 +15,7 @@ class BoxExampleScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextDrawDecorator.boxed(
+              TextDecorator.boxed(
                 style: BoxStyle.rounded,
                 text: const Text(
                   'Rounded Box',
@@ -24,7 +24,7 @@ class BoxExampleScreen extends StatelessWidget {
                 strokeWidth: 2,
               ),
               const SizedBox(height: 32),
-              TextDrawDecorator.boxed(
+              TextDecorator.boxed(
                 style: BoxStyle.rounded,
                 text: const Text(
                   'Franz jagt im komplett verwahrlosten Taxi quer durch Berlin',
@@ -33,7 +33,7 @@ class BoxExampleScreen extends StatelessWidget {
                 strokeWidth: 2,
               ),
               const SizedBox(height: 32),
-              TextDrawDecorator.boxed(
+              TextDecorator.boxed(
                 style: BoxStyle.bubble,
                 text: const Text(
                   'Bubble Text 2',
@@ -43,7 +43,7 @@ class BoxExampleScreen extends StatelessWidget {
                 borderRadius: 16,
               ),
               const SizedBox(height: 32),
-              TextDrawDecorator.boxed(
+              TextDecorator.boxed(
                 style: BoxStyle.bubble,
                 text: const Text(
                   'Bubble Text 2',
@@ -53,7 +53,7 @@ class BoxExampleScreen extends StatelessWidget {
                 borderRadius: 16,
               ),
               const SizedBox(height: 32),
-              TextDrawDecorator.boxed(
+              TextDecorator.boxed(
                 style: BoxStyle.curled,
                 text: const Text(
                   'Curcled Box',
@@ -63,7 +63,7 @@ class BoxExampleScreen extends StatelessWidget {
                 borderRadius: 16,
               ),
               const SizedBox(height: 32),
-              TextDrawDecorator.boxed(
+              TextDecorator.boxed(
                 style: BoxStyle.curled,
                 text: const Text(
                   'Franz jagt im komplett verwahrlosten Taxi quer durch Berlin',

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_text_draw_decorator/flutter_text_draw_decorator.dart';
+import 'package:flutter_text_decorator/flutter_text_decorator.dart';
 
 class UnderlineExampleScreen extends StatelessWidget {
   static const String route = '/underline-example';
@@ -16,7 +16,7 @@ class UnderlineExampleScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Center(
-              child: TextDrawDecorator.underlined(
+              child: TextDecorator.underlined(
                 text: const Text(
                   'Underlined Text',
                   style: TextStyle(fontSize: 24),
@@ -26,7 +26,7 @@ class UnderlineExampleScreen extends StatelessWidget {
               ),
             ),
             Center(
-              child: TextDrawDecorator.underlined(
+              child: TextDecorator.underlined(
                 style: UnderlineStyle.curved,
                 text: const Text(
                   'Underlined',
@@ -38,7 +38,7 @@ class UnderlineExampleScreen extends StatelessWidget {
             ),
             const SizedBox(height: 32),
             Center(
-              child: TextDrawDecorator.underlined(
+              child: TextDecorator.underlined(
                 style: UnderlineStyle.curved,
                 text: const Text(
                   'Franz jagt im komplett verwahrlosten Taxi quer durch Berlin',

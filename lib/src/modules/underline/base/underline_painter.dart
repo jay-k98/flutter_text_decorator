@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_text_draw_decorator/src/modules/underline/classes/horizontal_offset.dart';
+import 'package:flutter_text_decorator/src/modules/underline/classes/horizontal_offset.dart';
 
 abstract class UnderlinePainter extends CustomPainter {
   final Color color;

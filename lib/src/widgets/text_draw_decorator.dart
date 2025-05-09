@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_text_draw_decorator/src/modules/box/enums/box_style.dart';
-import 'package:flutter_text_draw_decorator/src/modules/circle/decorations/circle_decoration.dart';
-import 'package:flutter_text_draw_decorator/src/modules/circle/enums/circle_style.dart';
-import 'package:flutter_text_draw_decorator/src/modules/highlight/enums/highlight_style.dart';
-import 'package:flutter_text_draw_decorator/src/modules/underline/enums/underline_style.dart';
+import 'package:flutter_text_decorator/src/modules/box/enums/box_style.dart';
+import 'package:flutter_text_decorator/src/modules/circle/decorations/circle_decoration.dart';
+import 'package:flutter_text_decorator/src/modules/circle/enums/circle_style.dart';
+import 'package:flutter_text_decorator/src/modules/highlight/enums/highlight_style.dart';
+import 'package:flutter_text_decorator/src/modules/underline/enums/underline_style.dart';
 
-class TextDrawDecorator extends StatelessWidget {
+class TextDecorator extends StatelessWidget {
   final Text text;
   final CustomPainter painter;
 
-  const TextDrawDecorator({
+  const TextDecorator({
     required this.text,
     required this.painter,
     super.key,
@@ -23,47 +23,47 @@ class TextDrawDecorator extends StatelessWidget {
     );
   }
 
-  factory TextDrawDecorator.circled({
+  factory TextDecorator.circled({
     required Text text,
     CircleStyle style = CircleStyle.circled,
     CircleDecoration? decoration,
   }) {
-    return TextDrawDecorator(
+    return TextDecorator(
       text: text,
       painter: style.getPainter(text, decoration: CircleDecoration.standard()),
     );
   }
 
-  factory TextDrawDecorator.underlined({
+  factory TextDecorator.underlined({
     required Text text,
     UnderlineStyle style = UnderlineStyle.horizontal,
     Color color = Colors.black,
     double strokeWidth = 1,
   }) {
-    return TextDrawDecorator(
+    return TextDecorator(
       text: text,
       painter: style.getPainter(text, color, strokeWidth),
     );
   }
 
-  factory TextDrawDecorator.boxed({
+  factory TextDecorator.boxed({
     required Text text,
     BoxStyle style = BoxStyle.bubble,
     double borderRadius = 1,
     double strokeWidth = 1,
   }) {
-    return TextDrawDecorator(
+    return TextDecorator(
       text: text,
       painter: style.getPainter(text, borderRadius, strokeWidth),
     );
   }
 
-  factory TextDrawDecorator.highlighted({
+  factory TextDecorator.highlighted({
     required Text text,
     HighlightStyle style = HighlightStyle.marker,
     Color? color,
     double? strokeWidth,
   }) {
-    return TextDrawDecorator(text: text, painter: style.getPainter(text, color, strokeWidth));
+    return TextDecorator(text: text, painter: style.getPainter(text, color, strokeWidth));
   }
 }
