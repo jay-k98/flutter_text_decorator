@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_text_draw_decorator/src/modules/highlight/painter/highlight_painter.dart';
+import 'package:flutter_text_decorator/src/modules/highlight/painter/highlight_painter.dart';
 
 enum HighlightStyle {
   marker;

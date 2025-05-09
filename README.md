@@ -32,7 +32,7 @@ dependencies:
 ### Box Decorator
 
 ```
-TextDrawDecorator.boxed(
+TextDecorator.boxed(
   style: BoxStyle.rounded,
   text: const Text(
     'Rounded Box',
@@ -47,7 +47,7 @@ TextDrawDecorator.boxed(
 ### Circle Decorator
 
 ```
-TextDrawDecorator.circled(
+TextDecorator.circled(
   style: CircleStyle.circled,
   text: const Text(
     'Circled Text',
@@ -61,7 +61,7 @@ TextDrawDecorator.circled(
 ### Underline Decorator
 
 ```
-TextDrawDecorator.underlined(
+TextDecorator.underlined(
   style: UnderlineStyle.horizontal,
   text: const Text(
     'Underlined Text',
@@ -77,7 +77,7 @@ TextDrawDecorator.underlined(
 ### Highlight Decorator
 
 ```
-TextDrawDecorator.highlighted(
+TextDecorator.highlighted(
   style: HighlightStyle.marker,
   text: const Text(
     'Highlighted Text',

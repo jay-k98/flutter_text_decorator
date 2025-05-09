@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_text_draw_decorator/src/modules/circle/decorations/circle_decoration.dart';
-import 'package:flutter_text_draw_decorator/src/modules/circle/painter/closed_circle_painter.dart';
-import 'package:flutter_text_draw_decorator/src/modules/circle/painter/open_circle_painter.dart';
+import 'package:flutter_text_decorator/src/modules/circle/decorations/circle_decoration.dart';
+import 'package:flutter_text_decorator/src/modules/circle/painter/closed_circle_painter.dart';
+import 'package:flutter_text_decorator/src/modules/circle/painter/open_circle_painter.dart';
 
 enum CircleStyle {
   basic,

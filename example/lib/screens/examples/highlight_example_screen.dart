@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_text_draw_decorator/flutter_text_draw_decorator.dart';
+import 'package:flutter_text_decorator/flutter_text_decorator.dart';
 
 class HighlightExampleScreen extends StatelessWidget {
   static const String route = '/highlight-example';
@@ -15,21 +15,21 @@ class HighlightExampleScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextDrawDecorator.highlighted(
+              TextDecorator.highlighted(
                 text: const Text(
                   'abc',
                   style: TextStyle(fontSize: 32),
                 ),
               ),
               const SizedBox(height: 32),
-              TextDrawDecorator.highlighted(
+              TextDecorator.highlighted(
                 text: const Text(
                   'Highlighted Text',
                   style: TextStyle(fontSize: 32),
                 ),
               ),
               const SizedBox(height: 32),
-              TextDrawDecorator.highlighted(
+              TextDecorator.highlighted(
                 text: const Text(
                   'Franz jagt im komplett verwahrlosten Taxi quer durch Berlin',
                   style: TextStyle(fontSize: 16),

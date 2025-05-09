@@ -1,10 +1,10 @@
 import 'package:example/core/routes/app_router.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(const FlutterTextDrawDecoratorExample());
+void main() => runApp(const FlutterTextDecoratorExample());
 
-class FlutterTextDrawDecoratorExample extends StatelessWidget {
-  const FlutterTextDrawDecoratorExample({super.key});
+class FlutterTextDecoratorExample extends StatelessWidget {
+  const FlutterTextDecoratorExample({super.key});
 
   static final router = AppRouter.routes;
 

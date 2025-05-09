@@ -5,18 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "flutter_text_draw_decorator",
+            "name": "flutter_text_decorator",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "flutter_text_draw_decorator (profile mode)",
+            "name": "flutter_text_decorator (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "flutter_text_draw_decorator (release mode)",
+            "name": "flutter_text_decorator (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"

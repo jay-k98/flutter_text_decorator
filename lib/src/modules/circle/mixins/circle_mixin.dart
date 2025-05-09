@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_text_draw_decorator/src/modules/circle/classes/circle_size.dart';
+import 'package:flutter_text_decorator/src/modules/circle/classes/circle_size.dart';
 
 mixin CircleConstraints {
   getCircleSizes({

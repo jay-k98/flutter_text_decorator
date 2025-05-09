@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_text_draw_decorator/src/modules/base/text_decoration_painter.dart';
-import 'package:flutter_text_draw_decorator/src/modules/circle/mixins/circle_mixin.dart';
+import 'package:flutter_text_decorator/src/modules/base/text_decoration_painter.dart';
+import 'package:flutter_text_decorator/src/modules/circle/mixins/circle_mixin.dart';
 
 class ClosedCirclePainter extends TextDecoratorPainter with CircleConstraints {
   ClosedCirclePainter({
