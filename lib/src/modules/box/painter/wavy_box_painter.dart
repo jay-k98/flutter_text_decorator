@@ -2,6 +2,36 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+/// A [CustomPainter] that draws a box with wavy edges around a given [Text] widget.
+///
+/// This painter creates a decorative bounding box where each side of the rectangle
+/// is rendered as a series of connected curves, giving a "wavy" or "scalloped"
+/// appearance. It calculates the dimensions of the provided text, including handling
+/// for text that wraps to multiple lines if it exceeds the available width constraint
+/// passed to the `paint` method.
+///
+/// The waviness is achieved by drawing multiple conic curves (`Path.conicTo`) for each
+/// side of the box. The number of horizontal segments (which determines the
+/// number of "waves" on the top and bottom edges), the depth of the waves (`arcHeight`),
+/// and the stroke width are currently hardcoded within the painter.
+///
+/// To use [WavyBoxPainter], provide it with the [Text] widget to be decorated
+/// and the [borderColor] for the wavy outline.
+///
+///
+/// Example:
+/// ```dart
+/// CustomPaint(
+///   painter: WavyBoxPainter(
+///     text: Text("Some Wavy Text", style: TextStyle(fontSize: 16)),
+///     borderColor: Colors.purple,
+///   ),
+///   child: Text(
+///      "Some Wavy Text",
+///       style: TextStyle(fontSize: 16),
+///    ),
+/// )
+/// ```
 class WavyBoxPainter extends CustomPainter {
   // TODO: add padding?
   // TODO: add fill color?

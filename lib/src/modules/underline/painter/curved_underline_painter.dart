@@ -1,6 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_text_decorator/src/modules/underline/base/underline_painter.dart';
 
+/// A [CustomPainter] that draws a curved or wavy underline beneath text.
+///
+/// This painter extends [UnderlinePainter] and implements a specific style
+/// of underline that uses a cubic Bezier curve to create a flowing,
+/// non-straight line.
+///
+/// Key properties inherited or used:
+/// - `text`: The [String] content to be underlined.
+/// - `color`: The [Color] of the underline.
+/// - `strokeWidth`: The thickness of the underline.
+/// - `textStyle`: The [TextStyle] of the text, used for layout by `TextPainter`
+///   to help determine the path of the curve relative to the text dimensions.
+///
+/// The curve's control points are calculated relative to the `size` of the canvas
+/// and the `textPainter.width` to create its characteristic shape.
+///
+/// Example (conceptual, as direct usage might be part of a larger framework):
+/// ```dart
+/// CustomPaint(
+///   painter: CurvedUnderlinePainter(
+///     text: "Curvy Text",
+///     color: Colors.blue,
+///     strokeWidth: 2.0,
+///     textStyle: TextStyle(fontSize: 18),
+///   ),
+/// )
+/// ```
 class CurvedUnderlinePainter extends UnderlinePainter {
   CurvedUnderlinePainter({required this.text, required super.color, required super.strokeWidth, super.textStyle});
 

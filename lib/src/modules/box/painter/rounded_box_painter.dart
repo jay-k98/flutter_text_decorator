@@ -1,13 +1,40 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
+/// A [CustomPainter] that draws a rounded rectangle (box) around a given [Text] widget.
+///
+/// This painter is designed to create a visual bounding box for text content.
+/// It calculates the dimensions of the text and then draws a rounded rectangle
+/// that encompasses it. The box's width will not exceed the available width
+/// provided by the `size` parameter in the `paint` method. If the text is wider
+/// than the available space, the box height will adjust to accommodate the
+/// text, assuming it wraps to multiple lines.
+///
+/// To use [RoundedBoxPainter], provide it with the [Text] widget to be decorated,
+/// the desired [borderRadius] for the corners of the box, and the [strokeWidth]
+/// for the box's outline.
+///
+/// Example:
+/// ```dart
+/// CustomPaint(
+///   painter: RoundedBoxPainter(
+///     text: Text("Hello World", style: TextStyle(fontSize: 16)),
+///     borderRadius: 8.0,
+///     strokeWidth: 2.0,
+///   ),
+///   child: Text("Hello World", style: TextStyle(fontSize: 16)), // Optional: if you want the text painted by Flutter's framework too
+/// )
+/// ```
 class RoundedBoxPainter extends CustomPainter {
   final Text text;
   final double borderRadius;
   final double strokeWidth;
 
   RoundedBoxPainter({
-    required this.text, required this.borderRadius, required this.strokeWidth, super.repaint,
+    required this.text,
+    required this.borderRadius,
+    required this.strokeWidth,
+    super.repaint,
   });
 
   @override
