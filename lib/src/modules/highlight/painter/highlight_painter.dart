@@ -1,6 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+/// A [CustomPainter] that draws a marker-style highlight over text.
+///
+/// This painter creates a slightly wavy, thick line that mimics the appearance
+/// of a physical highlighter pen. The highlight is drawn horizontally across
+/// the vertical center of the text.
+///
+/// Key properties:
+/// - `text`: The [String] content to be highlighted.
+/// - `color`: The [Color] of the highlight.
+/// - `textStyle`: The [TextStyle] of the text, used to determine dimensions
+///   for the highlight, particularly its default thickness.
+/// - `strokeWidth`: The thickness of the highlight line. If `null`, it defaults
+///   to the height of the text (calculated via `textPainter.height`).
+///
+/// The highlight path is a cubic Bezier curve, giving it a slightly
+/// irregular, hand-drawn feel.
+///
+/// Example (conceptual, as direct usage might be part of a larger framework):
+/// ```dart
+/// CustomPaint(
+///   painter: HighlightPainter(
+///     text: "Important Text",
+///     color: Colors.yellow.withOpacity(0.5),
+///     textStyle: TextStyle(fontSize: 18),
+///   ),
+/// )
+/// ```
 class HighlightPainter extends CustomPainter {
   final String text;
   final Color color;
