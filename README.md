@@ -6,7 +6,7 @@
 
 Bring your words to life leveraging flutter_text_decorator with wavy underlines, colorful boxes, speech bubbles and more. Whether you want to highlight important details, add a playful touch or simply stand out. The package makes it easy to add personality and flair to your text.
 
-Developed with 💯 Passion by Developers of [**exxeta**](https://www.exxeta.com)
+Developed with 💯 Passion by [**exxeta**](https://www.exxeta.com)
 
 ## Features
 
