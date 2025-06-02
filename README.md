@@ -1,4 +1,3 @@
-# flutter_text_decorator
 ![Flutter Text Decorator Logo][logo_white]
 ![Flutter Text Decorator Logo][logo_black]
 
