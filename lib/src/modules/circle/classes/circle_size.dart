@@ -1,8 +1,4 @@
 class CircleSize {
-  final double textWidth;
-  final double textHeight;
-  final double horizontalRadius;
-  final double verticalRadius;
 
   CircleSize({
     required this.textWidth,
@@ -10,4 +6,8 @@ class CircleSize {
     required this.horizontalRadius,
     required this.verticalRadius,
   });
+  final double textWidth;
+  final double textHeight;
+  final double horizontalRadius;
+  final double verticalRadius;
 }

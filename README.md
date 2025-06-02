@@ -1,120 +1,120 @@
 # flutter_text_decorator
+![Flutter Text Decorator Logo][logo_white]
+![Flutter Text Decorator Logo][logo_black]
 
-![License](https://img.shields.io/github/license/EXXETA/flutter_tex_dec)
-<!-- ![Release](https://img.shields.io/github/release/EXXETA/flutter_tex_dec) -->
-<!-- [![pub package](https://img.shields.io/pub/v/flutter_tex_dec)](https://pub.dev/packages/flutter_tex_dec) -->
-
-![Screenshot of Feature Grid](./documentation/img/overview.png)
+[![License: MIT][license_badge]][license_link]
+[![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
 
 Bring your words to life leveraging flutter_text_decorator with wavy underlines, colorful boxes, speech bubbles and more. Whether you want to highlight important details, add a playful touch or simply stand out. The package makes it easy to add personality and flair to your text.
 
+Developed with passion by [**EXXETA**](https://www.exxeta.com)
+
 ## Features
 
-- [x] Boxes
-- [x] Underline
-- [x] Wavy Box
-- [x] Speech Bubble
+- ✅ Boxes
+- ✅ Underline
+- ✅ Wavy Box
+- ✅ Speech Bubble
 
 Feel free to check out the [Example App](./example) and play around.
 
-## Installation
+## Quick Start 🚀
 
-### pub.dev
+1.  **Add `flutter_text_decorator` to your `pubspec.yaml`**
 
-Add flutter_text_decorator as dependency to `pubspec.yaml`:
+    ```yaml
+    dependencies:
+      flutter_text_decorator:
+    ```
 
-```
-dependencies:
-  flutter_tex_dec: ^0.1.0
-```
+2.  **Run the following terminal command to install the package:**
+    ```sh
+    flutter pub get
+    ```
 
-## Usage
+3.  **Import the package into your Dart file**
 
-### Box Decorator
+    ```sh
+    import 'package:flutter_text_decorator/flutter_text_decorator.dart';
+    ```
 
-```
-TextDecorator.boxed(
-  style: BoxStyle.rounded,
-  text: const Text(
-    'Rounded Box',
-    style: TextStyle(fontSize: 32),
-  ),
-  strokeWidth: 2,
-),
-```
+4.  **Use TextDecorator**
 
-![Box Decorator Example](./documentation/img/box.png)
+    Here is a simple example of how you can use `TextDecorator.boxed`:
+    ```dart
+    import 'package:flutter/material.dart';
+    import 'package:flutter_text_decorator/flutter_text_decorator.dart';
 
-### Circle Decorator
+    class MyDecoratedWidget extends StatelessWidget {
+      const MyDecoratedWidget({super.key});
 
-```
-TextDecorator.circled(
-  style: CircleStyle.circled,
-  text: const Text(
-    'Circled Text',
-    style: TextStyle(fontSize: 32),
-  ),
-),
-```
+      @override
+      Widget build(BuildContext context) {
+        return Center(
+          child: TextDecorator.boxed(
+            style: BoxStyle.rounded,
+            text: const Text(
+              'Hello Decorated World!',
+              style: TextStyle(fontSize: 24, color: Colors.white),
+            ),
+            color: Colors.blueAccent,
+            strokeWidth: 2,
+          ),
+        );
+      }
+    }
+    ```
 
-![Circle Decorator Example](./documentation/img/circle.png)
 
-### Underline Decorator
+## Styles Preview
 
-```
-TextDecorator.underlined(
-  style: UnderlineStyle.horizontal,
-  text: const Text(
-    'Underlined Text',
-    style: TextStyle(fontSize: 24),
-  ),
-  color: Colors.orange,
-  strokeWidth: 2,
-),
-```
+<table>
+  <tr>
+    <td align="center">
+      <h3>Box Decorator</h3>
+      <img src="./documentation/img/box.png" alt="Box Decorator Example" width="80%">
+    </td>
+    <td align="center">
+      <h3>Circle Decorator</h3>
+      <img src="./documentation/img/circle.png" alt="Circle Decorator Example" width="80%">
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <h3>Underline Decorator</h3>
+      <img src="./documentation/img/underline.png" alt="Underline Decorator Example" width="80%">
+    </td>
+    <td align="center">
+      <h3>Highlight Decorator</h3>
+      <img src="./documentation/img/highlight.png" alt="Highlight Decorator Example" width="80%">
+    </td>
+  </tr>
+</table>
 
-![Underline Decorator Example](./documentation/img/underline.png)
 
-### Highlight Decorator
+## Planned features 🎯
 
-```
-TextDecorator.highlighted(
-  style: HighlightStyle.marker,
-  text: const Text(
-    'Highlighted Text',
-    style: TextStyle(fontSize: 32),
-  ),
-),
-```
+We're always thinking of new ways to make text decoration even more fun and versatile! Our next big idea is to introduce a **Comic effect** to bring a playful, graphic-novel style to your Flutter apps. Stay tuned for this and other enhancements.
 
-![Underline Decorator Example](./documentation/img/highlight.png)
-
-## Roadmap
-
-### TODO's
-
-- [ ] Fix Wavy Box corners
-- [ ] Add test automation
-
-### Planned features
-
-- [ ] Comic effect
 
 ## Contributing
+We love new ideas and contributions from the community! If you have a suggestion, a bug report, or want to contribute code, please check out our [CONTRIBUTING](./CONTRIBUTING.md) guide to get started. Your input helps make `flutter_text_decorator` even better!
 
-See [CONTRIBUTING](./CONTRIBUTING.md)
 
-## Authors and acknowledgment
+## Authors 
 
 Authors:
 
 - [Tobias Rump](https://github.com/TobiasRump)
 - [Jonas Klock](https://github.com/jay-k98)
 
-Special Thanks:
-
-- Noah Bauer for the creative name of this package
-
 ## License
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
 
-See [LICENSE](./LICENSE)
+[logo_black]: ./assets/flutter_text_decorator_logo_dark.png#gh-light-mode-only
+[logo_white]: ./assets/flutter_text_decorator_logo_light.png#gh-dark-mode-only
+[license_link]: https://opensource.org/licenses/MIT
+[license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
+[very_good_analysis_badge]: https://img.shields.io/badge/style-very_good_analysis-B22C89.svg
+[very_good_analysis_link]: https://pub.dev/packages/very_good_analysis
+[very_good_ventures_link]: https://verygood.ventures

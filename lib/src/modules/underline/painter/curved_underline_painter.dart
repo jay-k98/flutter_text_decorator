@@ -41,11 +41,11 @@ class CurvedUnderlinePainter extends UnderlinePainter {
       textDirection: TextDirection.ltr,
     )..layout();
 
-    final Paint paint = Paint()
+    final paint = Paint()
       ..color = color
       ..style = PaintingStyle.stroke
       ..strokeWidth = strokeWidth;
-    final Path path = Path()
+    final path = Path()
       ..moveTo(5, size.height * 1.1)
       ..cubicTo(
         size.width - textPainter.width / 2,

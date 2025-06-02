@@ -13,11 +13,11 @@ enum TipOrientation {
 }
 
 class BubbleBoxTip {
-  final TipPosition position;
-  final TipOrientation orientation;
 
   const BubbleBoxTip({
     this.position = TipPosition.center,
     this.orientation = TipOrientation.right,
   });
+  final TipPosition position;
+  final TipOrientation orientation;
 }

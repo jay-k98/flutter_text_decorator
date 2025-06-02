@@ -18,14 +18,8 @@ import 'package:flutter_text_decorator/src/modules/box/decorations/bubble_box_ti
 /// - `bubbleColor`: The color of the bubble's outline.
 /// - `borderRadius`: The radius for the rounded corners of the bubble.
 /// - `tip`: A [BubbleBoxTip] object defining the tip's position, orientation, and size.
-/// ```
+/// ```(dart)
 class BubbleBoxPainter extends CustomPainter {
-  final Text text;
-  final double padding; //! TODO: fix text not being centered
-  final Color bubbleColor;
-  final double borderRadius;
-  final BubbleBoxTip tip;
-
   BubbleBoxPainter({
     required this.text,
     required this.padding,
@@ -34,12 +28,17 @@ class BubbleBoxPainter extends CustomPainter {
     this.borderRadius = 8,
     this.tip = const BubbleBoxTip(),
   });
+  final Text text;
+  final double padding; //! TODO: fix text not being centered
+  final Color bubbleColor;
+  final double borderRadius;
+  final BubbleBoxTip tip;
 
   @override
   void paint(Canvas canvas, Size size) {
-    final Paint paint = Paint()
+    final paint = Paint()
       ..color = bubbleColor
-      ..strokeWidth = 2 // TODO: add as param?
+      ..strokeWidth = 2 // TODO(everyone): add as param?
       ..style = PaintingStyle.stroke;
 
     // Calculate text size
@@ -73,12 +72,12 @@ class BubbleBoxPainter extends CustomPainter {
       ..lineTo(bubbleWidth, bubbleHeight - borderRadius)
       ..quadraticBezierTo(bubbleWidth, bubbleHeight, bubbleWidth - borderRadius, bubbleHeight);
 
-    final double tipOffset = bubbleWidth * 0.05;
+    final tipOffset = bubbleWidth * 0.05;
 
-    final double tipStart = bubbleWidth * tip.position.percentage;
-    final double tipBaseWidth = bubbleWidth * 0.2;
-    final double tipEnd = tipStart - tipBaseWidth;
-    double tipPeak = tipEnd - tipOffset;
+    final tipStart = bubbleWidth * tip.position.percentage;
+    final tipBaseWidth = bubbleWidth * 0.2;
+    final tipEnd = tipStart - tipBaseWidth;
+    var tipPeak = tipEnd - tipOffset;
     if (tip.orientation == TipOrientation.right) {
       tipPeak = tipStart + tipOffset;
     }
