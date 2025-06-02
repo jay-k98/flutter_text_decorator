@@ -111,8 +111,8 @@ Authors:
 ## License
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
 
-[logo_black]: ./assets/flutter_text_decorator_logo_dark.png#gh-light-mode-only
-[logo_white]: ./assets/flutter_text_decorator_logo_light.png#gh-dark-mode-only
+[logo_black]: ./assets/flutter_text_decorator_logo_light.png#gh-light-mode-only
+[logo_white]: ./assets/flutter_text_decorator_logo_dark.png#gh-dark-mode-only
 [license_link]: https://opensource.org/licenses/MIT
 [license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
 [very_good_analysis_badge]: https://img.shields.io/badge/style-very_good_analysis-B22C89.svg
