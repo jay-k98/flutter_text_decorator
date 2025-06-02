@@ -17,9 +17,6 @@ import 'package:flutter_text_decorator/src/modules/base/decoration_base.dart';
 /// - `textStyle`: The [TextStyle] applied to the `text`.
 /// - `decoration`: A [DecorationBase] instance providing base styling
 abstract class TextDecoratorPainter extends CustomPainter {
-  final String text;
-  final TextStyle textStyle;
-  final DecorationBase decoration;
 
   TextDecoratorPainter({
     required this.text,
@@ -27,4 +24,7 @@ abstract class TextDecoratorPainter extends CustomPainter {
     required this.decoration,
     super.repaint,
   });
+  final String text;
+  final TextStyle textStyle;
+  final DecorationBase decoration;
 }

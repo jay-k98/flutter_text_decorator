@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_text_decorator/src/modules/underline/base/underline_painter.dart';
+import 'package:flutter_text_decorator/src/modules/underline/classes/horizontal_offset.dart';
 
 /// A [CustomPainter] that draws a straight horizontal underline beneath text.
 ///
@@ -30,11 +31,11 @@ class HorizontalUnderlinePainter extends UnderlinePainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final Paint paint = Paint()
+    final paint = Paint()
       ..color = color
       ..style = PaintingStyle.stroke
       ..strokeWidth = strokeWidth;
-    final Path path = Path()
+    final path = Path()
       ..moveTo(horizontalOffset.left, size.height)
       ..lineTo(size.width - horizontalOffset.right, size.height);
 

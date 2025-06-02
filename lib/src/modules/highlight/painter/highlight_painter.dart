@@ -29,12 +29,12 @@ import 'package:flutter/rendering.dart';
 /// )
 /// ```
 class HighlightPainter extends CustomPainter {
+
+  HighlightPainter({required this.text, required this.color, required this.textStyle, this.strokeWidth});
   final String text;
   final Color color;
   final TextStyle textStyle;
   final double? strokeWidth;
-
-  HighlightPainter({required this.text, required this.color, required this.textStyle, this.strokeWidth});
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -44,14 +44,14 @@ class HighlightPainter extends CustomPainter {
       textDirection: TextDirection.ltr,
     )..layout();
 
-    final Paint paint = Paint()
+    final paint = Paint()
       ..color = color
       ..style = PaintingStyle.stroke
       ..strokeWidth = strokeWidth ?? textPainter.height;
 
     const yThreshold = 5;
     final horizontalOffset = textPainter.width / 4;
-    final Path path = Path()
+    final path = Path()
       ..moveTo(0, textPainter.height / 2)
       ..cubicTo(
         horizontalOffset,

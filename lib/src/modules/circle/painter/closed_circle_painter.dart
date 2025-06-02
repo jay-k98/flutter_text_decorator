@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_text_decorator/src/modules/base/decoration_base.dart';
 import 'package:flutter_text_decorator/src/modules/base/text_decoration_painter.dart';
 import 'package:flutter_text_decorator/src/modules/circle/mixins/circle_mixin.dart';
 
@@ -33,7 +34,7 @@ class ClosedCirclePainter extends TextDecoratorPainter with CircleConstraints {
     required super.text,
     required super.textStyle,
     required super.decoration,
-  }) : assert(text != '' && decoration.strokeWidth > 0);
+  }) : assert(text != '' && decoration.strokeWidth > 0, 'text should not be empty and decoration.strokeWidth should be greater than 0');
 
   @override
   void paint(Canvas canvas, Size size) {

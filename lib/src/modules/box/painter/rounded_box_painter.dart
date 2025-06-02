@@ -26,16 +26,15 @@ import 'package:flutter/material.dart';
 /// )
 /// ```
 class RoundedBoxPainter extends CustomPainter {
-  final Text text;
-  final double borderRadius;
-  final double strokeWidth;
-
   RoundedBoxPainter({
     required this.text,
     required this.borderRadius,
     required this.strokeWidth,
     super.repaint,
   });
+  final Text text;
+  final double borderRadius;
+  final double strokeWidth;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -43,7 +42,7 @@ class RoundedBoxPainter extends CustomPainter {
       ..strokeWidth = strokeWidth
       ..style = PaintingStyle.stroke;
 
-    // TODO: Extract and make generic
+    // TODO(everyone): Extract and make generic
     final textSpan = TextSpan(text: text.data, style: text.style);
     final textPainter = TextPainter(
       text: textSpan,
@@ -54,15 +53,15 @@ class RoundedBoxPainter extends CustomPainter {
     final boxWidth = min(textWidth, size.width);
 
     final textHeight = textPainter.height;
-    double boxHeight = textHeight;
+    var boxHeight = textHeight;
 
-    final heightFactor = (textWidth / size.width);
+    final heightFactor = textWidth / size.width;
     final nLines = heightFactor.ceil();
     boxHeight = nLines * textHeight;
 
     final centerOffset = Offset(
       size.width / 2,
-      (size.height / 2),
+      size.height / 2,
     );
 
     final rrect = RRect.fromRectAndRadius(

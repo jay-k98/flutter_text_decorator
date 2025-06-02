@@ -41,22 +41,12 @@ import 'package:flutter_text_decorator/src/modules/underline/enums/underline_sty
 /// ```
 ///
 class TextDecorator extends StatelessWidget {
-  final Text text;
-  final CustomPainter painter;
 
   const TextDecorator({
     required this.text,
     required this.painter,
     super.key,
   });
-
-  @override
-  Widget build(BuildContext context) {
-    return CustomPaint(
-      painter: painter,
-      child: text,
-    );
-  }
 
   /// Creates a `TextDecorator` that draws a circular-style decoration around the [text].
   ///
@@ -78,7 +68,6 @@ class TextDecorator extends StatelessWidget {
   factory TextDecorator.circled({
     required Text text,
     CircleStyle style = CircleStyle.circled,
-    CircleDecoration? decoration,
   }) {
     return TextDecorator(
       text: text,
@@ -175,5 +164,15 @@ class TextDecorator extends StatelessWidget {
     double? strokeWidth,
   }) {
     return TextDecorator(text: text, painter: style.getPainter(text, color, strokeWidth));
+  }
+  final Text text;
+  final CustomPainter painter;
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomPaint(
+      painter: painter,
+      child: text,
+    );
   }
 }

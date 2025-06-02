@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_text_decorator/src/modules/circle/decorations/circle_decoration.dart';
 
 /// An abstract base class for defining common styling properties for text decorations.
 ///
@@ -7,11 +8,11 @@ import 'package:flutter/material.dart';
 /// like [color] and [strokeWidth].
 ///
 abstract class DecorationBase {
-  final Color color;
-  final double strokeWidth;
 
   const DecorationBase({
     required this.color,
     required this.strokeWidth,
   });
+  final Color color;
+  final double strokeWidth;
 }

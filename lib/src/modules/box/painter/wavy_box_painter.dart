@@ -33,20 +33,19 @@ import 'package:flutter/material.dart';
 /// )
 /// ```
 class WavyBoxPainter extends CustomPainter {
-  // TODO: add padding?
-  // TODO: add fill color?
-  final Text text;
-  final Color borderColor;
-
   WavyBoxPainter({
     required this.text,
     required this.borderColor,
     super.repaint,
   });
+  // TODO(everyone): add padding?
+  // TODO(everyone): add fill color?
+  final Text text;
+  final Color borderColor;
 
   @override
   void paint(Canvas canvas, Size size) {
-    final Paint paint = Paint()
+    final paint = Paint()
       ..color = borderColor
       ..strokeWidth = 2
       ..style = PaintingStyle.stroke;
@@ -58,9 +57,9 @@ class WavyBoxPainter extends CustomPainter {
     )..layout();
 
     final textWidth = textPainter.width;
-    double textHeight = textPainter.height;
+    var textHeight = textPainter.height;
 
-    final heightFactor = (textWidth / size.width);
+    final heightFactor = textWidth / size.width;
     final nLines = heightFactor.ceil();
     textHeight = nLines * textHeight;
 
@@ -71,36 +70,36 @@ class WavyBoxPainter extends CustomPainter {
 
     const arcHeight = -10.0;
     const weight = 1.0;
-    double lastX2 = 0.0;
+    var lastX2 = 0.0;
 
-    // TODO: Fix corners, maybe with [arcTo]?
+    // TODO(everyone): Fix corners, maybe with [arcTo]?
     final path = Path()..moveTo(0, 0);
 
     // Upper left to upper right
-    for (int i = 1; i <= nHorizontalSegments; i++) {
-      final double x2 = i * lengthSegment / 1.0;
+    for (var i = 1; i <= nHorizontalSegments; i++) {
+      final x2 = i * lengthSegment / 1.0;
       path.conicTo(lastX2 + lengthSegment / 2, arcHeight, x2 / 1.0, 0, weight);
       lastX2 = x2;
     }
 
     // Upper right to lower right
     double lastY2 = 0;
-    for (int i = 1; i <= nVerticalSegments; i++) {
-      final double y2 = i * lengthSegment / 1.0;
+    for (var i = 1; i <= nVerticalSegments; i++) {
+      final y2 = i * lengthSegment / 1.0;
       path.conicTo(lastX2 - arcHeight, lastY2 + lengthSegment / 2, lastX2, y2, weight);
       lastY2 = y2;
     }
 
     // Lower right to lower left
-    for (int i = nHorizontalSegments - 1; i >= 0; i--) {
-      final double x2 = i * lengthSegment / 1.0;
+    for (var i = nHorizontalSegments - 1; i >= 0; i--) {
+      final x2 = i * lengthSegment / 1.0;
       path.conicTo(lastX2 - lengthSegment / 2, lastY2 - arcHeight, x2 / 1.0, lastY2, weight);
       lastX2 = x2;
     }
 
     // Lower left to upper right
-    for (int i = nVerticalSegments - 1; i >= 0; i--) {
-      final double y2 = i * lengthSegment / 1.0;
+    for (var i = nVerticalSegments - 1; i >= 0; i--) {
+      final y2 = i * lengthSegment / 1.0;
       path.conicTo(arcHeight, y2 + lengthSegment / 2, lastX2, y2, weight);
       lastY2 = y2;
     }
