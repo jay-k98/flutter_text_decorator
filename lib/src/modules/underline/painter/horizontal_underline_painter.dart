@@ -40,6 +40,7 @@ class HorizontalUnderlinePainter extends UnderlinePainter {
   });
 
   @override
+  @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
       ..color = color
@@ -47,44 +48,33 @@ class HorizontalUnderlinePainter extends UnderlinePainter {
       ..strokeWidth = strokeWidth
       ..strokeCap = StrokeCap.square;
 
-    final currentTextStyle = super.textStyle ?? const TextStyle();
-    final textSpan = TextSpan(text: text, style: currentTextStyle);
     final textPainter = TextPainter(
-      text: textSpan,
+      text: TextSpan(text: text, style: textStyle ?? const TextStyle()),
       textDirection: ui.TextDirection.ltr,
     )..layout(maxWidth: size.width);
 
-    final List<ui.LineMetrics> lines = textPainter.computeLineMetrics();
+    final lines = textPainter.computeLineMetrics();
+    double yOffset = 0;
 
-    for (int i = 0; i < lines.length; i++) {
-      final line = lines[i];
-
+    for (final line in lines) {
       final double startX = line.left + horizontalOffset.left;
       final double endX = line.left + line.width - horizontalOffset.right;
+      final double underlineY = yOffset + line.ascent + line.descent + strokeWidth;
 
-      final gapY = _calculateGapBetweenLines(i, line);
-
-      if (_isLineLengthPositiv(startX, endX)) {
-        canvas.drawLine(Offset(startX, gapY), Offset(endX, gapY), paint);
+      if (_isLineLengthPositive(startX, endX)) {
+        canvas.drawLine(Offset(startX, underlineY), Offset(endX, underlineY), paint);
       }
+
+      yOffset += _calculateGapBetweenLines(line.lineNumber, line);
     }
   }
 
-  bool _isLineLengthPositiv(double x, double y) {
-    return x < y;
-  }
+  bool _isLineLengthPositive(double x, double y) => x < y;
 
   double _calculateGapBetweenLines(int lineIndex, ui.LineMetrics line) {
-    double desiredGap = 5;
-    if (lineIndex == 0) {
-      desiredGap = 1;
-    }
-
-    return line.baseline + line.descent + desiredGap + (strokeWidth / 2.0);
+    return line.height + (line.descent / 2) + strokeWidth;
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return false;
-  }
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
