@@ -5,10 +5,10 @@ import 'package:flutter_text_decorator/src/modules/underline/painter/curved_unde
 void main() {
   group('CurvedUnderlinePainter Tests', () {
     testWidgets('renders CustomPaint with CurvedUnderlinePainter for single line text', (WidgetTester tester) async {
-      const String testText = 'Hello Curved Underline';
-      const TextStyle testTextStyle = TextStyle(fontSize: 24, color: Colors.black);
-      const Color underlineColor = Colors.blue;
-      const double underlineStrokeWidth = 2.0;
+      const testText = 'Hello Curved Underline';
+      const testTextStyle = TextStyle(fontSize: 24, color: Colors.black);
+      const underlineColor = Colors.blue;
+      const underlineStrokeWidth = 2.0;
 
       await tester.pumpWidget(
         MaterialApp(

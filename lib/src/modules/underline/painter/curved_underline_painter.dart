@@ -1,6 +1,7 @@
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter_text_decorator/src/modules/underline/base/underline_painter.dart';
+import 'package:flutter_text_decorator/src/modules/underline/mixins/line_gap_mixin.dart';
 
 /// A [CustomPainter] that draws a curved or wavy underline beneath text.
 ///
@@ -29,12 +30,12 @@ import 'package:flutter_text_decorator/src/modules/underline/base/underline_pain
 ///   ),
 /// )
 /// ```
-class CurvedUnderlinePainter extends UnderlinePainter {
+class CurvedUnderlinePainter extends UnderlinePainter with LineGap {
   CurvedUnderlinePainter({
     required this.text,
     required super.color,
     required super.strokeWidth,
-    this.curvyFactor = 0.7,
+    this.curvyFactor = 3,
     super.textStyle,
   });
 
@@ -43,58 +44,44 @@ class CurvedUnderlinePainter extends UnderlinePainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final currentTextStyle = super.textStyle ?? const TextStyle();
-    final textSpan = TextSpan(text: text, style: currentTextStyle);
     final textPainter = TextPainter(
-      text: textSpan,
+      text: TextSpan(text: text, style: textStyle ?? const TextStyle()),
       textDirection: ui.TextDirection.ltr,
     )..layout(maxWidth: size.width);
 
-    final Paint paint = Paint()
-      ..color = super.color
+    final paint = Paint()
+      ..color = color
       ..style = PaintingStyle.stroke
-      ..strokeWidth = super.strokeWidth;
+      ..strokeWidth = strokeWidth;
 
-    final List<ui.LineMetrics> lines = textPainter.computeLineMetrics();
+    final lines = textPainter.computeLineMetrics();
 
-    final double waveHeightUnit = super.strokeWidth * 3.0;
+    double yOffset = 0;
 
-    for (int lineIdx = 0; lineIdx < lines.length; lineIdx++) {
-      final line = lines[lineIdx];
+    for (final line in lines) {
+      final double startX = line.left;
+      final double xEnd = startX + line.width;
 
-      final double startX = line.left + horizontalOffset.left;
-      final double xEnd = line.left + line.width - horizontalOffset.right;
-      final double effectiveLineWidth = xEnd - startX;
+      if (line.width <= 0) continue;
 
-      if (effectiveLineWidth <= 0) {
-        continue;
-      }
+      yOffset += calculateGapBetweenLines(line: line, lineIndex: line.lineNumber, strokeWidth: strokeWidth);
 
-      final double lineGapY = _calculateGapBetweenLines(lineIdx, line, super.strokeWidth);
-      final double yCp1 = lineGapY - waveHeightUnit * curvyFactor;
-      final double yCp2 = lineGapY + waveHeightUnit * curvyFactor;
-      final double yEnd = lineGapY;
-      final double xCp1 = startX + effectiveLineWidth * (1 / 3);
-      final double xCp2 = startX + effectiveLineWidth * (2 / 3);
+      final double y1 = yOffset - strokeWidth * curvyFactor;
+      final double y2 = yOffset + strokeWidth * curvyFactor;
+      final double yEnd = yOffset;
+      final double x1 = startX + xEnd * (1 / 3);
+      final double x2 = startX + xEnd * (2 / 3);
+      final double x3 = xEnd;
+      final double y3 = yEnd;
 
       final Path path = Path()
-        ..moveTo(startX, lineGapY)
-        ..cubicTo(xCp1, yCp1, xCp2, yCp2, xEnd, yEnd);
+        ..moveTo(startX, yOffset)
+        ..cubicTo(x1, y1, x2, y2, x3, y3);
 
       canvas.drawPath(path, paint);
     }
   }
 
-  double _calculateGapBetweenLines(int lineIndex, ui.LineMetrics line, double currentStrokeWidth) {
-    double desiredGap = 5;
-    if (lineIndex == 0) {
-      desiredGap = 1;
-    }
-    return line.baseline + line.descent + desiredGap + (currentStrokeWidth / 2.0);
-  }
-
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return false;
-  }
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }

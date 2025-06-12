@@ -3,6 +3,7 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter_text_decorator/src/modules/underline/base/underline_painter.dart';
 import 'package:flutter_text_decorator/src/modules/underline/classes/horizontal_offset.dart';
+import 'package:flutter_text_decorator/src/modules/underline/mixins/line_gap_mixin.dart';
 
 /// A [CustomPainter] that draws a straight horizontal underline beneath text.
 ///
@@ -28,9 +29,7 @@ import 'package:flutter_text_decorator/src/modules/underline/classes/horizontal_
 ///   child: Text("Underlined Text"),
 /// )
 /// ```
-class HorizontalUnderlinePainter extends UnderlinePainter {
-  final String text;
-
+class HorizontalUnderlinePainter extends UnderlinePainter with LineGap {
   HorizontalUnderlinePainter({
     required this.text,
     required super.color,
@@ -38,6 +37,8 @@ class HorizontalUnderlinePainter extends UnderlinePainter {
     super.textStyle,
     super.horizontalOffset,
   });
+
+  final String text;
 
   @override
   @override
@@ -61,18 +62,11 @@ class HorizontalUnderlinePainter extends UnderlinePainter {
       final double endX = line.left + line.width - horizontalOffset.right;
       final double underlineY = yOffset + line.ascent + line.descent + strokeWidth;
 
-      if (_isLineLengthPositive(startX, endX)) {
+      if (startX < endX) {
         canvas.drawLine(Offset(startX, underlineY), Offset(endX, underlineY), paint);
       }
-
-      yOffset += _calculateGapBetweenLines(line.lineNumber, line);
+      yOffset += calculateGapBetweenLines(line: line, lineIndex: line.lineNumber, strokeWidth: strokeWidth);
     }
-  }
-
-  bool _isLineLengthPositive(double x, double y) => x < y;
-
-  double _calculateGapBetweenLines(int lineIndex, ui.LineMetrics line) {
-    return line.height + (line.descent / 2) + strokeWidth;
   }
 
   @override

@@ -39,9 +39,9 @@ class UnderlineExampleScreen extends StatelessWidget {
             const SizedBox(height: 32),
             Center(
               child: TextDecorator.underlined(
-                style: UnderlineStyle.curved,
+                style: UnderlineStyle.horizontal,
                 text: const Text(
-                  'Franz jagt im komplett verwahrlosten Taxi quer durch Berlin',
+                  'Franz jagt im komplett verwahrlosten Taxiiii quer Franz jagt im kompletr Franz jagt im kompletr Franz jagt im jagt im kompletr Franz jagt im',
                   style: TextStyle(fontSize: 16),
                 ),
                 color: Colors.red,
