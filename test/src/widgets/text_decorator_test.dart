@@ -34,7 +34,6 @@ void main() {
             matchesGoldenFile('text_decorator/box/bubble.default.png'),
           );
         },
-        tags: ['golden'],
       );
       testWidgets(
         'BoxStyle.rounded renders',
@@ -57,7 +56,6 @@ void main() {
             matchesGoldenFile('text_decorator/box/rounded.default.png'),
           );
         },
-        tags: ['golden'],
       );
 
       testWidgets(
@@ -80,7 +78,6 @@ void main() {
             matchesGoldenFile('text_decorator/box/curled.default.png'),
           );
         },
-        tags: ['golden'],
       );
     });
   });

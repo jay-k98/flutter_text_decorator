@@ -44,12 +44,8 @@ class RoundedBoxPainter extends CustomPainter {
       ..strokeWidth = strokeWidth
       ..style = PaintingStyle.stroke;
 
-    // TODO(everyone): Extract and make generic
     final textSpan = TextSpan(text: text.data, style: text.style);
-    final textPainter = TextPainter(
-      text: textSpan,
-      textDirection: TextDirection.ltr,
-    )..layout();
+    final textPainter = TextPainter(text: textSpan, textDirection: TextDirection.ltr)..layout();
 
     final textWidth = textPainter.width;
     final boxWidth = min(textWidth, size.width);
@@ -61,27 +57,9 @@ class RoundedBoxPainter extends CustomPainter {
     final nLines = heightFactor.ceil();
     boxHeight = nLines * textHeight;
 
-    double getOffsetDx() {
-      var dx = size.width / 2;
-      if (padding.left != padding.right) {
-        final diff = (padding.left - padding.right).abs() / 2;
-        dx = padding.left < padding.right ? dx + diff : dx - diff;
-      }
-      return dx;
-    }
-
-    double getOffsetDy() {
-      var dy = size.height / 2;
-      if (padding.top != padding.bottom) {
-        final diff = (padding.top - padding.bottom).abs() / 2;
-        dy = padding.top < padding.bottom ? dy + diff : dy - diff;
-      }
-      return dy;
-    }
-
     final centerOffset = Offset(
-      getOffsetDx(),
-      getOffsetDy(),
+      _getOffsetDx(size),
+      _getOffsetDy(size),
     );
 
     final rrect = RRect.fromRectAndRadius(
@@ -90,6 +68,24 @@ class RoundedBoxPainter extends CustomPainter {
     );
 
     canvas.drawRRect(rrect, paint);
+  }
+
+  double _getOffsetDx(Size size) {
+    var dx = size.width / 2;
+    if (padding.left != padding.right) {
+      final diff = (padding.left - padding.right).abs() / 2;
+      dx = padding.left < padding.right ? dx + diff : dx - diff;
+    }
+    return dx;
+  }
+
+  double _getOffsetDy(Size size) {
+    var dy = size.height / 2;
+    if (padding.top != padding.bottom) {
+      final diff = (padding.top - padding.bottom).abs() / 2;
+      dy = padding.top < padding.bottom ? dy + diff : dy - diff;
+    }
+    return dy;
   }
 
   @override

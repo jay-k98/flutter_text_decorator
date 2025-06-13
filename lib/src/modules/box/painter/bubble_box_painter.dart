@@ -31,7 +31,7 @@ class BubbleBoxPainter extends CustomPainter {
     this.tip = const BubbleBoxTip(),
   });
   final Text text;
-  final EdgeInsets padding; //! TODO: fix text not being centered
+  final EdgeInsets padding;
   final Color bubbleColor;
   final double borderRadius;
   final BubbleBoxTip tip;
@@ -59,7 +59,7 @@ class BubbleBoxPainter extends CustomPainter {
     final bubbleHeight = availableHeight + padding.vertical;
 
     // Calculate tail size
-    //! TODO: extract
+    // !TODO: extract
     final tailHeight = bubbleHeight * 0.25;
 
     final path = Path()
