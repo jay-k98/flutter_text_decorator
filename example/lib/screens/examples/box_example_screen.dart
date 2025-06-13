@@ -46,8 +46,8 @@ class BoxExampleScreen extends StatelessWidget {
               TextDecorator.boxed(
                 style: BoxStyle.bubble,
                 text: const Text(
-                  'Bubble Text 2',
-                  style: TextStyle(fontSize: 32),
+                  'Franz jagt im komplett verwahrlosten Taxi quer durch Berlin',
+                  style: TextStyle(fontSize: 16),
                 ),
                 strokeWidth: 2,
                 borderRadius: 16,
@@ -63,14 +63,17 @@ class BoxExampleScreen extends StatelessWidget {
                 borderRadius: 16,
               ),
               const SizedBox(height: 32),
-              TextDecorator.boxed(
-                style: BoxStyle.curled,
-                text: const Text(
-                  'Franz jagt im komplett verwahrlosten Taxi quer durch Berlin',
-                  style: TextStyle(fontSize: 16),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: TextDecorator.boxed(
+                  style: BoxStyle.curled,
+                  text: const Text(
+                    'Franz jagt im komplett verwahrlosten Taxi quer durch Berlin',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  strokeWidth: 2,
+                  borderRadius: 16,
                 ),
-                strokeWidth: 2,
-                borderRadius: 16,
               ),
             ],
           ),

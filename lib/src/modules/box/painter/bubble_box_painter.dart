@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_text_decorator/src/modules/box/decorations/bubble_box_tip.dart';
 
@@ -22,14 +24,14 @@ import 'package:flutter_text_decorator/src/modules/box/decorations/bubble_box_ti
 class BubbleBoxPainter extends CustomPainter {
   BubbleBoxPainter({
     required this.text,
-    required this.padding,
     required this.bubbleColor,
+    required this.padding,
     super.repaint,
     this.borderRadius = 8,
     this.tip = const BubbleBoxTip(),
   });
   final Text text;
-  final double padding; //! TODO: fix text not being centered
+  final EdgeInsets padding;
   final Color bubbleColor;
   final double borderRadius;
   final BubbleBoxTip tip;
@@ -48,29 +50,31 @@ class BubbleBoxPainter extends CustomPainter {
     )..layout();
 
     final textWidth = textPainter.width;
+    final availableWidth = min(textWidth, size.width);
     final textHeight = textPainter.height;
+    final availableHeight = max(textHeight, size.height);
 
     // Calculate bubble size
-    final bubbleWidth = textWidth + padding * 2;
-    final bubbleHeight = textHeight + padding * 2;
+    final bubbleWidth = availableWidth + padding.horizontal;
+    final bubbleHeight = availableHeight + padding.vertical;
 
     // Calculate tail size
-    //! TODO: extract
+    // !TODO: extract
     final tailHeight = bubbleHeight * 0.25;
 
     final path = Path()
 
       // Top left corner
-      ..moveTo(0, borderRadius)
-      ..quadraticBezierTo(0, 0, borderRadius, 0)
+      ..moveTo(0 - padding.left, borderRadius - padding.top)
+      ..quadraticBezierTo(0 - padding.left, 0 - padding.top, borderRadius - padding.left, 0 - padding.top)
 
       // Top right corner
-      ..lineTo(bubbleWidth - borderRadius, 0)
-      ..quadraticBezierTo(bubbleWidth, 0, bubbleWidth, borderRadius)
+      ..lineTo(bubbleWidth - borderRadius - padding.left, 0 - padding.top)
+      ..quadraticBezierTo(bubbleWidth - padding.left, 0 - padding.top, bubbleWidth - padding.left, borderRadius - padding.top)
 
       // Bottom right corner
-      ..lineTo(bubbleWidth, bubbleHeight - borderRadius)
-      ..quadraticBezierTo(bubbleWidth, bubbleHeight, bubbleWidth - borderRadius, bubbleHeight);
+      ..lineTo(bubbleWidth - padding.left, bubbleHeight - borderRadius - padding.top)
+      ..quadraticBezierTo(bubbleWidth - padding.left, bubbleHeight - padding.top, bubbleWidth - borderRadius - padding.left, bubbleHeight - padding.top);
 
     final tipOffset = bubbleWidth * 0.05;
 
@@ -84,11 +88,11 @@ class BubbleBoxPainter extends CustomPainter {
 
     // Bottom left corner with tail
     path
-      ..lineTo(tipStart, bubbleHeight)
-      ..lineTo(tipPeak, bubbleHeight + tailHeight)
-      ..lineTo(tipEnd, bubbleHeight)
-      ..lineTo(borderRadius, bubbleHeight)
-      ..quadraticBezierTo(0, bubbleHeight, 0, bubbleHeight - borderRadius)
+      ..lineTo(tipStart, bubbleHeight - padding.top)
+      ..lineTo(tipPeak, bubbleHeight + tailHeight - padding.top)
+      ..lineTo(tipEnd, bubbleHeight - padding.top)
+      ..lineTo(borderRadius - padding.left, bubbleHeight - padding.top)
+      ..quadraticBezierTo(0 - padding.left, bubbleHeight - padding.top, 0 - padding.left, bubbleHeight - borderRadius - padding.top)
       ..close();
 
     // Draw the bubble

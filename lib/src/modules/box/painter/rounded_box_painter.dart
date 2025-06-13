@@ -30,11 +30,13 @@ class RoundedBoxPainter extends CustomPainter {
     required this.text,
     required this.borderRadius,
     required this.strokeWidth,
+    required this.padding,
     super.repaint,
   });
   final Text text;
   final double borderRadius;
   final double strokeWidth;
+  final EdgeInsets padding;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -42,12 +44,8 @@ class RoundedBoxPainter extends CustomPainter {
       ..strokeWidth = strokeWidth
       ..style = PaintingStyle.stroke;
 
-    // TODO(everyone): Extract and make generic
     final textSpan = TextSpan(text: text.data, style: text.style);
-    final textPainter = TextPainter(
-      text: textSpan,
-      textDirection: TextDirection.ltr,
-    )..layout();
+    final textPainter = TextPainter(text: textSpan, textDirection: TextDirection.ltr)..layout();
 
     final textWidth = textPainter.width;
     final boxWidth = min(textWidth, size.width);
@@ -60,16 +58,34 @@ class RoundedBoxPainter extends CustomPainter {
     boxHeight = nLines * textHeight;
 
     final centerOffset = Offset(
-      size.width / 2,
-      size.height / 2,
+      _getOffsetDx(size),
+      _getOffsetDy(size),
     );
 
     final rrect = RRect.fromRectAndRadius(
-      Rect.fromCenter(center: centerOffset, width: boxWidth, height: boxHeight),
+      Rect.fromCenter(center: centerOffset, width: boxWidth + padding.horizontal, height: boxHeight + padding.vertical),
       Radius.circular(borderRadius),
     );
 
     canvas.drawRRect(rrect, paint);
+  }
+
+  double _getOffsetDx(Size size) {
+    var dx = size.width / 2;
+    if (padding.left != padding.right) {
+      final diff = (padding.left - padding.right).abs() / 2;
+      dx = padding.left < padding.right ? dx + diff : dx - diff;
+    }
+    return dx;
+  }
+
+  double _getOffsetDy(Size size) {
+    var dy = size.height / 2;
+    if (padding.top != padding.bottom) {
+      final diff = (padding.top - padding.bottom).abs() / 2;
+      dy = padding.top < padding.bottom ? dy + diff : dy - diff;
+    }
+    return dy;
   }
 
   @override
