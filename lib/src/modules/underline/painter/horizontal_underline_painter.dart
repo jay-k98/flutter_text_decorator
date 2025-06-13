@@ -1,6 +1,9 @@
+import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_text_decorator/src/modules/underline/base/underline_painter.dart';
 import 'package:flutter_text_decorator/src/modules/underline/classes/horizontal_offset.dart';
+import 'package:flutter_text_decorator/src/modules/underline/mixins/line_gap_mixin.dart';
 
 /// A [CustomPainter] that draws a straight horizontal underline beneath text.
 ///
@@ -26,24 +29,46 @@ import 'package:flutter_text_decorator/src/modules/underline/classes/horizontal_
 ///   child: Text("Underlined Text"),
 /// )
 /// ```
-class HorizontalUnderlinePainter extends UnderlinePainter {
-  HorizontalUnderlinePainter({required super.color, required super.strokeWidth, super.horizontalOffset});
+class HorizontalUnderlinePainter extends UnderlinePainter with LineGap {
+  HorizontalUnderlinePainter({
+    required this.text,
+    required super.color,
+    required super.strokeWidth,
+    super.textStyle,
+    super.horizontalOffset,
+  });
 
+  final String text;
+
+  @override
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
       ..color = color
       ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth;
-    final path = Path()
-      ..moveTo(horizontalOffset.left, size.height)
-      ..lineTo(size.width - horizontalOffset.right, size.height);
+      ..strokeWidth = strokeWidth
+      ..strokeCap = StrokeCap.square;
 
-    canvas.drawPath(path, paint);
+    final textPainter = TextPainter(
+      text: TextSpan(text: text, style: textStyle ?? const TextStyle()),
+      textDirection: ui.TextDirection.ltr,
+    )..layout(maxWidth: size.width);
+
+    final lines = textPainter.computeLineMetrics();
+    double yOffset = 0;
+
+    for (final line in lines) {
+      final double startX = line.left + horizontalOffset.left;
+      final double endX = line.left + line.width - horizontalOffset.right;
+      final double underlineY = yOffset + line.ascent + line.descent + strokeWidth;
+
+      if (startX < endX) {
+        canvas.drawLine(Offset(startX, underlineY), Offset(endX, underlineY), paint);
+      }
+      yOffset += calculateGapBetweenLines(line: line, lineIndex: line.lineNumber, strokeWidth: strokeWidth);
+    }
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return false;
-  }
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }

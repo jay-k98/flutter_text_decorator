@@ -81,4 +81,47 @@ void main() {
       );
     });
   });
+  group('Testing TextDecorator.underline styles', () {
+    testWidgets(
+      ' UnderlineStyle.horizontal renders',
+      (tester) async {
+        // arrange
+        final widget = TextDecorator.underlined(
+          text: _text,
+          strokeWidth: _stokeWidth,
+        );
+
+        // act
+        await tester.pumpWidget(createTestApp(_createCenter(widget)));
+        await tester.pumpAndSettle();
+
+        // assert
+        await expectLater(
+          find.byType(Text),
+          matchesGoldenFile('text_decorator/underline/underline_horizontal.png'),
+        );
+      },
+    );
+    testWidgets(
+      ' UnderlineStyle.rounded renders',
+      (tester) async {
+        // arrange
+        final widget = TextDecorator.underlined(
+          style: UnderlineStyle.curved,
+          text: _text,
+          strokeWidth: _stokeWidth,
+        );
+
+        // act
+        await tester.pumpWidget(createTestApp(_createCenter(widget)));
+        await tester.pumpAndSettle();
+
+        // assert
+        await expectLater(
+          find.byType(Text),
+          matchesGoldenFile('text_decorator/underline/underline_curved.png'),
+        );
+      },
+    );
+  });
 }

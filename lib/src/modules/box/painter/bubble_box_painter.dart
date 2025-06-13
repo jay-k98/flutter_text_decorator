@@ -59,7 +59,7 @@ class BubbleBoxPainter extends CustomPainter {
     final bubbleHeight = availableHeight + padding.vertical;
 
     // Calculate tail size
-    // !TODO: extract
+    // TODO(everyone): extract
     final tailHeight = bubbleHeight * 0.25;
 
     final path = Path()

@@ -61,13 +61,14 @@ Please make sure that your commit messages follow the follwing templates.
 
 The commit message starts with the ISSUE-ID followed by a COMMITTAG:
 
-{ISSUE-ID} [{COMMITTAG}]: {COMMIT MSG}
+[FTD #{ISSUE-ID}] [{COMMITTAG}]: {COMMIT MSG}
 
-[ADD] -> New feature/files/code/folders added <br>
-[UPDATE] -> Updated a file e.g. from screenshot test <br>
-[FIX] -> Fixed a bug/error <br>
-[DELETE] -> Delete a files/code/folders <br>
-[REFAC] -> Modified or refactored the files/code/folders / changes from PRs <br>
+Commit Tags:
+[ADD] -> New feature/files/code/folders added 
+[UPDATE] -> Updated a file e.g. from screenshot test
+[FIX] -> Fixed a bug/error
+[DELETE] -> Delete a files/code/folders
+[REFAC] -> Modified or refactored the files/code/folders / changes from PRs
 
-**Example** <br>
-123 [ADD]: new box style
+**Example**
+[FTD #123][ADD]: new box style
