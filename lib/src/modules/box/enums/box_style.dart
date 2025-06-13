@@ -21,22 +21,31 @@ enum BoxStyle {
   /// - `strokeWidth`: Intended for the thickness of the box outline.
   ///
   /// See individual enum value documentation for notes on parameter usage for specific styles.
-  CustomPainter getPainter(Text text, double borderRadius, double strokeWidth) {
+  CustomPainter getPainter(Text text, double borderRadius, double strokeWidth, EdgeInsets padding) {
     switch (this) {
       case BoxStyle.rounded:
-        return RoundedBoxPainter(text: text, borderRadius: borderRadius, strokeWidth: strokeWidth);
+        return RoundedBoxPainter(
+          text: text,
+          borderRadius: borderRadius,
+          strokeWidth: strokeWidth,
+          padding: padding,
+        );
       case BoxStyle.bubble:
         return BubbleBoxPainter(
           text: text,
-          padding: 4,
           bubbleColor: Colors.orange,
           tip: const BubbleBoxTip(
             position: TipPosition.left,
             orientation: TipOrientation.left,
           ),
+          padding: padding,
         );
       case BoxStyle.curled:
-        return WavyBoxPainter(text: text, borderColor: Colors.black);
+        return WavyBoxPainter(
+          text: text,
+          borderColor: Colors.black,
+          padding: padding,
+        );
     }
   }
 }

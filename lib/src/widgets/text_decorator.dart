@@ -41,7 +41,6 @@ import 'package:flutter_text_decorator/src/modules/underline/enums/underline_sty
 /// ```
 ///
 class TextDecorator extends StatelessWidget {
-
   const TextDecorator({
     required this.text,
     required this.painter,
@@ -131,10 +130,11 @@ class TextDecorator extends StatelessWidget {
     BoxStyle style = BoxStyle.bubble,
     double borderRadius = 1,
     double strokeWidth = 1,
+    EdgeInsets padding = const EdgeInsets.all(8),
   }) {
     return TextDecorator(
       text: text,
-      painter: style.getPainter(text, borderRadius, strokeWidth),
+      painter: style.getPainter(text, borderRadius, strokeWidth, padding),
     );
   }
 
