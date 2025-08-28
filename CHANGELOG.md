@@ -1,7 +1,7 @@
 flutter_tex_dec Changelog
 ===========================
 
-# 0.1.0
+# 0.0.1
 
 * Added Box Styles:
   * Rounded
