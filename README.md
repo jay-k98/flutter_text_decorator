@@ -71,21 +71,21 @@ Feel free to check out the [Example App](./example) and play around.
   <tr>
     <td align="center">
       <h3>Box Decorator</h3>
-      <img src="./documentation/img/box.png" alt="Box Decorator Example" width="80%">
+      <img src="https://raw.githubusercontent.com/EXXETA/flutter_text_decorator/refs/heads/main/documentation/img/box.png" alt="Box Decorator Example" width="80%">
     </td>
     <td align="center">
       <h3>Circle Decorator</h3>
-      <img src="./documentation/img/circle.png" alt="Circle Decorator Example" width="80%">
+      <img src="https://raw.githubusercontent.com/EXXETA/flutter_text_decorator/refs/heads/main/documentation/img/circle.png" alt="Circle Decorator Example" width="80%">
     </td>
   </tr>
   <tr>
     <td align="center">
       <h3>Underline Decorator</h3>
-      <img src="./documentation/img/underline.png" alt="Underline Decorator Example" width="80%">
+      <img src="https://raw.githubusercontent.com/EXXETA/flutter_text_decorator/refs/heads/main/documentation/img/underline.png" alt="Underline Decorator Example" width="80%">
     </td>
     <td align="center">
       <h3>Highlight Decorator</h3>
-      <img src="./documentation/img/highlight.png" alt="Highlight Decorator Example" width="80%">
+      <img src="https://raw.githubusercontent.com/EXXETA/flutter_text_decorator/refs/heads/main/documentation/img/highlight.png" alt="Highlight Decorator Example" width="80%">
     </td>
   </tr>
 </table>
